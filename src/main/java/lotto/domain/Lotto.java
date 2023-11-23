@@ -3,6 +3,7 @@ package lotto.domain;
 import static lotto.global.Error.DUPLICATED;
 import static lotto.global.Error.INVALID_SIZE;
 
+import java.util.Collections;
 import java.util.List;
 
 public class Lotto {
@@ -30,6 +31,6 @@ public class Lotto {
     // TODO: 추가 기능 구현
 
     public List<Integer> getNumbers() {
-        return numbers;
+        return Collections.unmodifiableList(numbers);
     }
 }

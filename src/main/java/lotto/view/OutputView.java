@@ -16,7 +16,10 @@ public class OutputView {
 
     public static void printLottos(LottoRepository lottoRepository) {
         for (Lotto lotto : lottoRepository.getLottos()) {
-            System.out.println(lotto.toString());
+            System.out.println(lotto.getNumbers()
+                    .stream()
+                    .sorted()
+                    .toList());
         }
     }
 }
