@@ -27,6 +27,10 @@ public class PurchaseAmount {
         }
     }
 
+    public int calculatePurchaseQuantity() {
+        return purchaseAmount / PURCHASE_UNIT;
+    }
+
     public int getPurchaseAmount() {
         return purchaseAmount;
     }
