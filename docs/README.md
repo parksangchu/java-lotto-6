@@ -60,6 +60,10 @@
 - 총 수익금을 산출한다.
 - 총 수익률을 산출한다.
 
+**InputConvertor**
+
+- 당첨번호 입력값을 콤마로 분할하여 번호리스트로 바꾼다.
+
 ### controller
 
 **Controller**
