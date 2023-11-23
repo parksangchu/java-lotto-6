@@ -1,5 +1,6 @@
 package lotto.view;
 
+import lotto.domain.Lotto;
 import lotto.domain.LottoRepository;
 
 public class OutputView {
@@ -14,6 +15,8 @@ public class OutputView {
     }
 
     public static void printLottos(LottoRepository lottoRepository) {
-
+        for (Lotto lotto : lottoRepository.getLottos()) {
+            System.out.println(lotto.toString());
+        }
     }
 }
