@@ -26,4 +26,8 @@ public class PurchaseAmount {
             throw new IllegalArgumentException(INVALID_AMOUNT_RANGE.getMessage());
         }
     }
+
+    public int getPurchaseAmount() {
+        return purchaseAmount;
+    }
 }
