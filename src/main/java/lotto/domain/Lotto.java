@@ -32,7 +32,25 @@ public class Lotto {
     private void validateNumberRange(List<Integer> numbers) {
         numbers.forEach(number -> new Number(number));
     }
+
     // TODO: 추가 기능 구현
+    public WinningResult checkWinningResult(WinningLotto winningLotto) {
+        int winningCount = checkWinningCount(winningLotto);
+        boolean hasBonusNumber = hasBonusNumber(winningLotto);
+        return new WinningResult(winningCount, hasBonusNumber);
+    }
+
+    private int checkWinningCount(WinningLotto winningLotto) {
+        return (int) numbers.stream()
+                .filter(number -> winningLotto
+                        .getWinningNumbers()
+                        .contains(number))
+                .count();
+    }
+
+    private boolean hasBonusNumber(WinningLotto winningLotto) {
+        return numbers.contains(winningLotto.getBonusNumber());
+    }
 
     public List<Integer> getNumbers() {
         return Collections.unmodifiableList(numbers);
