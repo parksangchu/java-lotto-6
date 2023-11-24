@@ -3,7 +3,9 @@ package lotto.controller;
 import java.util.List;
 import lotto.domain.Lotto;
 import lotto.domain.LottoRepository;
+import lotto.domain.Number;
 import lotto.domain.PurchaseAmount;
+import lotto.domain.WinningLotto;
 import lotto.view.InputView;
 import lotto.view.OutputView;
 
@@ -15,7 +17,7 @@ public class Controller {
         OutputView.printPurchaseQuantity(purchaseQuantity);
         LottoRepository lottoRepository = createLottoRepository(purchaseQuantity);
         OutputView.printLottos(lottoRepository);
-        List<Integer> winningNumbers = createWinningNumbers();
+        WinningLotto winningLotto = createWinningLotto();
     }
 
     private PurchaseAmount createPurchaseAmount() {
@@ -40,6 +42,19 @@ public class Controller {
                 List<Integer> winningNumbers = InputView.askWinningNumbers();
                 new Lotto(winningNumbers);
                 return winningNumbers;
+            } catch (IllegalArgumentException e) {
+                OutputView.printError(e);
+            }
+        }
+    }
+
+    private WinningLotto createWinningLotto() {
+        List<Integer> winningNumbers = createWinningNumbers();
+        while (true) {
+            try {
+                int bonusNumber = InputView.askBonusNumber();
+                new Number(bonusNumber);
+                return new WinningLotto(winningNumbers, bonusNumber);
             } catch (IllegalArgumentException e) {
                 OutputView.printError(e);
             }
