@@ -8,7 +8,7 @@ public class LottoRepository {
 
     public void issueLottos(int purchaseQuantity) {
         for (int i = 0; i < purchaseQuantity; i++) {
-            Lotto lotto = new Lotto(NumbersGenerator.generateNumbers());
+            Lotto lotto = new Lotto(Number.generateNumbers());
             lottos.add(lotto);
         }
     }
