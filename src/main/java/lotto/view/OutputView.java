@@ -10,6 +10,7 @@ import java.util.Map;
 import lotto.domain.Lotto;
 import lotto.domain.LottoRepository;
 import lotto.domain.Rank;
+import lotto.domain.WinningStats;
 
 public class OutputView {
     private static final String PURCHASE_QUANTITY_FORMAT = "%n%d개를 구매했습니다.%n";
@@ -39,13 +40,14 @@ public class OutputView {
         }
     }
 
-    public static void printWinningStats(Map<Rank, Integer> winningStats) {
+    public static void printWinningStats(WinningStats winningStats) {
+        Map<Rank, Integer> rankCounts = winningStats.getWinningStats();
         System.out.println(WINNING_STATS);
         System.out.printf(WINNING_STATS_FORMAT
-                , winningStats.get(FIFTH)
-                , winningStats.get(FOURTH)
-                , winningStats.get(THIRD)
-                , winningStats.get(SECOND)
-                , winningStats.get(FIRST));
+                , rankCounts.get(FIFTH)
+                , rankCounts.get(FOURTH)
+                , rankCounts.get(THIRD)
+                , rankCounts.get(SECOND)
+                , rankCounts.get(FIRST));
     }
 }
