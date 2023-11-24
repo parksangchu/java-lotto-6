@@ -28,7 +28,7 @@ public enum Rank {
         Map<Rank, Integer> rankCounts = new EnumMap<>(Rank.class);
         List<Rank> ranks = convertToRanks(winningResults);
         for (Rank rank : values()) {
-            int count = Collections.frequency(Collections.singleton(rank), ranks);
+            int count = Collections.frequency(ranks, rank);
             rankCounts.put(rank, count);
         }
         return rankCounts;
