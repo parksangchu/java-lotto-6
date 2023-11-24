@@ -25,8 +25,4 @@ public class Number {
     public static List<Integer> generateNumbers() {
         return Randoms.pickUniqueNumbersInRange(MIN_VALUE, MAX_VALUE, COUNT);
     }
-
-    public int getNumber() {
-        return number;
-    }
 }
