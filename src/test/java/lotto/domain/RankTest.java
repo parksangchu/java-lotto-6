@@ -4,7 +4,6 @@ import static org.assertj.core.api.AssertionsForClassTypes.assertThat;
 
 import java.util.ArrayList;
 import java.util.List;
-import java.util.Map;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.params.ParameterizedTest;
 import org.junit.jupiter.params.provider.CsvSource;
@@ -21,7 +20,8 @@ class RankTest {
         winningResults.add(new WinningResult(5, false));
         winningResults.add(new WinningResult(4, true));
         winningResults.add(new WinningResult(0, true));
-        Map<Rank, Integer> winningStats = Rank.countRanks(winningResults);
-        assertThat(winningStats.get(input)).isEqualTo(expect);
+        WinningStats winningStats = Rank.countRanks(winningResults);
+        assertThat(winningStats.getWinningStats()
+                .get(input)).isEqualTo(expect);
     }
 }

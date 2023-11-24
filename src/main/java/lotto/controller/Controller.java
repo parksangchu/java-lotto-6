@@ -16,14 +16,11 @@ public class Controller {
 
     public void run() {
         PurchaseAmount purchaseAmount = createPurchaseAmount();
-        int purchaseQuantity = purchaseAmount.calculatePurchaseQuantity();
-        OutputView.printPurchaseQuantity(purchaseQuantity);
+        int purchaseQuantity = createPurchaseQuantity(purchaseAmount);
         LottoRepository lottoRepository = createLottoRepository(purchaseQuantity);
-        OutputView.printLottos(lottoRepository);
         WinningLotto winningLotto = createWinningLotto();
         List<WinningResult> winningResults = lottoRepository.checkWinningResults(winningLotto);
-        WinningStats winningStats = Rank.countRanks(winningResults);
-        OutputView.printWinningStats(winningStats);
+        WinningStats winningStats = createWinningStats(winningResults);
     }
 
     private PurchaseAmount createPurchaseAmount() {
@@ -36,9 +33,16 @@ public class Controller {
         }
     }
 
+    private int createPurchaseQuantity(PurchaseAmount purchaseAmount) {
+        int purchaseQuantity = purchaseAmount.calculatePurchaseQuantity();
+        OutputView.printPurchaseQuantity(purchaseQuantity);
+        return purchaseQuantity;
+    }
+
     private LottoRepository createLottoRepository(int purchaseQuantity) {
         LottoRepository lottoRepository = new LottoRepository();
         lottoRepository.issueLottos(purchaseQuantity);
+        OutputView.printLottos(lottoRepository);
         return lottoRepository;
     }
 
@@ -65,5 +69,11 @@ public class Controller {
                 OutputView.printError(e);
             }
         }
+    }
+
+    private WinningStats createWinningStats(List<WinningResult> winningResults) {
+        WinningStats winningStats = Rank.countRanks(winningResults);
+        OutputView.printWinningStats(winningStats);
+        return winningStats;
     }
 }
