@@ -12,6 +12,7 @@ public class Lotto {
     public Lotto(List<Integer> numbers) {
         validateSize(numbers);
         validateDuplicated(numbers);
+        validateNumberRange(numbers);
         this.numbers = numbers;
     }
 
@@ -28,6 +29,9 @@ public class Lotto {
         }
     }
 
+    private void validateNumberRange(List<Integer> numbers) {
+        numbers.forEach(number -> new Number(number));
+    }
     // TODO: 추가 기능 구현
 
     public List<Integer> getNumbers() {
