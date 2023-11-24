@@ -31,6 +31,12 @@ public class InputView {
                 .collect(Collectors.toList());
     }
 
+    public static int askBonusNumber() {
+        System.out.println(ASK_BONUS_NUMBER);
+        String input = Console.readLine();
+        validateType(input);
+        return Integer.parseInt(input);
+    }
 
     private static void validateType(String input) {
         if (!input.chars()
