@@ -1,5 +1,6 @@
 package lotto.controller;
 
+import java.util.List;
 import lotto.domain.Lotto;
 import lotto.domain.LottoRepository;
 import lotto.domain.PurchaseAmount;
@@ -14,7 +15,7 @@ public class Controller {
         OutputView.printPurchaseQuantity(purchaseQuantity);
         LottoRepository lottoRepository = createLottoRepository(purchaseQuantity);
         OutputView.printLottos(lottoRepository);
-        Lotto winningNumbers = createWinningNumbers();
+        List<Integer> winningNumbers = createWinningNumbers();
     }
 
     private PurchaseAmount createPurchaseAmount() {
@@ -33,10 +34,12 @@ public class Controller {
         return lottoRepository;
     }
 
-    private Lotto createWinningNumbers() {
+    private List<Integer> createWinningNumbers() {
         while (true) {
             try {
-                return new Lotto(InputView.askWinningNumbers());
+                List<Integer> winningNumbers = InputView.askWinningNumbers();
+                new Lotto(winningNumbers);
+                return winningNumbers;
             } catch (IllegalArgumentException e) {
                 OutputView.printError(e);
             }

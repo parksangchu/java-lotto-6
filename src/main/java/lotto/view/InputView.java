@@ -31,6 +31,7 @@ public class InputView {
                 .collect(Collectors.toList());
     }
 
+
     private static void validateType(String input) {
         if (!input.chars()
                 .allMatch(Character::isDigit)) {
