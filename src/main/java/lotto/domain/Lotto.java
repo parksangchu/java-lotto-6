@@ -30,7 +30,7 @@ public class Lotto {
     }
 
     private void validateNumberRange(List<Integer> numbers) {
-        numbers.forEach(number -> new Number(number));
+        numbers.forEach(Number::new);
     }
 
     // TODO: 추가 기능 구현
