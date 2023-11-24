@@ -2,10 +2,18 @@ package lotto.domain;
 
 public class WinningResult {
     private final int winningCount;
-    private final boolean hasBonusNumber;
+    private final boolean matchBonusNumber;
 
-    public WinningResult(int winningCount, boolean hasBonusNumber) {
+    public WinningResult(int winningCount, boolean matchBonusNumber) {
         this.winningCount = winningCount;
-        this.hasBonusNumber = hasBonusNumber;
+        this.matchBonusNumber = matchBonusNumber;
+    }
+
+    public int getWinningCount() {
+        return winningCount;
+    }
+
+    public boolean isMatchBonusNumber() {
+        return matchBonusNumber;
     }
 }
