@@ -36,7 +36,7 @@ public enum Rank {
 
     private static List<Rank> convertToRanks(List<WinningResult> winningResults) {
         return winningResults.stream()
-                .map(winningResult -> winningResult.toRank())
+                .map(WinningResult::toRank)
                 .collect(Collectors.toList());
     }
 
