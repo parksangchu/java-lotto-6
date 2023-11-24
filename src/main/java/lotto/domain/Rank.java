@@ -13,7 +13,7 @@ public enum Rank {
     THIRD(5, false, 1_500_000),
     SECOND(5, true, 30_000_000),
     FIRST(6, false, 2_000_000_000);
-    
+
     private final int winningCount;
     private final boolean hasBonusNumber;
     private final int prize;
@@ -38,6 +38,10 @@ public enum Rank {
         return winningResults.stream()
                 .map(WinningResult::toRank)
                 .collect(Collectors.toList());
+    }
+
+    public long calculateProfit(int count) {
+        return (long) prize * count;
     }
 
     public int getWinningCount() {

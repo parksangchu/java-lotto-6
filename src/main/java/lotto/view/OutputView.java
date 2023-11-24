@@ -9,10 +9,10 @@ import lotto.domain.WinningStats;
 
 public class OutputView {
     private static final String PURCHASE_QUANTITY_FORMAT = "%n%d개를 구매했습니다.%n";
-    private static final String WINNING_STATS = "당첨 통계\n---";
+    private static final String WINNING_STATS = "\n당첨 통계\n---";
     private static final String WINNING_STATS_FORMAT2 = "%d개 일치%s (%,d원) - %d개%n";
     private static final String HAS_BONUS_NUMBER = ", 보너스 볼 일치";
-    private static final String HAS_NOT_BONUS_NUMBER = " ";
+    private static final String HAS_NOT_BONUS_NUMBER = "";
 
     public static void printError(Exception e) {
         System.out.println(e.getMessage());
@@ -36,19 +36,16 @@ public class OutputView {
         System.out.println(WINNING_STATS);
         Arrays.stream(Rank.values())
                 .skip(1)
-                .forEach(rank -> {
-                    System.out.printf(WINNING_STATS_FORMAT2
-                            , rank.getWinningCount()
-                            , checkBonusNumber(rank)
-                            , rank.getPrize()
-                            , rankCounts.get(rank));
-                });
+                .forEach(rank -> System.out.printf(WINNING_STATS_FORMAT2
+                        , rank.getWinningCount()
+                        , checkBonusNumber(rank)
+                        , rank.getPrize()
+                        , rankCounts.get(rank)));
     }
 
     private static String checkBonusNumber(Rank rank) {
         if (rank.hasBonusNumber()) {
             return HAS_BONUS_NUMBER;
-
         }
         return HAS_NOT_BONUS_NUMBER;
     }

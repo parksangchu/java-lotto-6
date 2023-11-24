@@ -24,4 +24,13 @@ class RankTest {
         assertThat(winningStats.getWinningStats()
                 .get(input)).isEqualTo(expect);
     }
+
+    @ParameterizedTest
+    @DisplayName("상금에 갯수를 곱해 총 수익을 구한다.")
+    @CsvSource(value = {"FIRST,20_000_000_000", "SECOND,300_000_000"})
+    void calculateProfit(Rank input, long expect) {
+        assertThat(input.calculateProfit(10))
+                .isEqualTo(expect);
+
+    }
 }
