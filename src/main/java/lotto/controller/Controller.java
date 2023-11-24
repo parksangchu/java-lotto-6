@@ -6,6 +6,7 @@ import lotto.domain.LottoRepository;
 import lotto.domain.Number;
 import lotto.domain.PurchaseAmount;
 import lotto.domain.WinningLotto;
+import lotto.domain.WinningResult;
 import lotto.view.InputView;
 import lotto.view.OutputView;
 
@@ -18,6 +19,7 @@ public class Controller {
         LottoRepository lottoRepository = createLottoRepository(purchaseQuantity);
         OutputView.printLottos(lottoRepository);
         WinningLotto winningLotto = createWinningLotto();
+        List<WinningResult> winningResults = lottoRepository.checkWinningResults(winningLotto);
     }
 
     private PurchaseAmount createPurchaseAmount() {

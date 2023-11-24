@@ -31,7 +31,7 @@ class LottoRepositoryTest {
         List<WinningResult> winningResults = lottoRepository.checkWinningResults(winningLotto);
         for (WinningResult winningResult : winningResults) {
             System.out.println(winningResult.getWinningCount());
-            System.out.println(winningResult.isMatchingBonusNumber());
+            System.out.println(winningResult.hasBonusNumber());
         }
         assertThat(winningResults.size()).isEqualTo(10);
     }

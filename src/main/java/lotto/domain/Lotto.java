@@ -36,8 +36,8 @@ public class Lotto {
     // TODO: 추가 기능 구현
     public WinningResult checkWinningResult(WinningLotto winningLotto) {
         int winningCount = checkWinningCount(winningLotto);
-        boolean matchingBonusNumber = hasBonusNumber(winningLotto);
-        return new WinningResult(winningCount, matchingBonusNumber);
+        boolean hasBonusNumber = hasBonusNumber(winningLotto);
+        return new WinningResult(winningCount, hasBonusNumber);
     }
 
     private int checkWinningCount(WinningLotto winningLotto) {

@@ -31,11 +31,11 @@ class LottoTest {
         WinningLotto winningLotto1 = new WinningLotto(List.of(1, 2, 3, 4, 5, 6), 7);
         WinningResult winningResult1 = lotto.checkWinningResult(winningLotto1);
         assertThat(winningResult1.getWinningCount()).isEqualTo(6);
-        assertThat(winningResult1.isMatchingBonusNumber()).isFalse();
+        assertThat(winningResult1.hasBonusNumber()).isFalse();
 
         WinningLotto winningLotto2 = new WinningLotto(List.of(1, 2, 3, 4, 5, 20), 6);
         WinningResult winningResult2 = lotto.checkWinningResult(winningLotto2);
         assertThat(winningResult2.getWinningCount()).isEqualTo(5);
-        assertThat(winningResult2.isMatchingBonusNumber()).isTrue();
+        assertThat(winningResult2.hasBonusNumber()).isTrue();
     }
 }
