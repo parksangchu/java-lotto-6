@@ -25,13 +25,13 @@ public enum Rank {
     }
 
     public static Map<Rank, Integer> countRanks(List<WinningResult> winningResults) {
-        Map<Rank, Integer> rankCounts = new EnumMap<>(Rank.class);
+        Map<Rank, Integer> winningStats = new EnumMap<>(Rank.class);
         List<Rank> ranks = convertToRanks(winningResults);
         for (Rank rank : values()) {
             int count = Collections.frequency(ranks, rank);
-            rankCounts.put(rank, count);
+            winningStats.put(rank, count);
         }
-        return rankCounts;
+        return winningStats;
     }
 
     private static List<Rank> convertToRanks(List<WinningResult> winningResults) {

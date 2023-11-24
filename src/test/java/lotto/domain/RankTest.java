@@ -21,7 +21,7 @@ class RankTest {
         winningResults.add(new WinningResult(5, false));
         winningResults.add(new WinningResult(4, true));
         winningResults.add(new WinningResult(0, true));
-        Map<Rank, Integer> rankCounts = Rank.countRanks(winningResults);
-        assertThat(rankCounts.get(input)).isEqualTo(expect);
+        Map<Rank, Integer> winningStats = Rank.countRanks(winningResults);
+        assertThat(winningStats.get(input)).isEqualTo(expect);
     }
 }

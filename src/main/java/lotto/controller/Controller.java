@@ -1,10 +1,12 @@
 package lotto.controller;
 
 import java.util.List;
+import java.util.Map;
 import lotto.domain.Lotto;
 import lotto.domain.LottoRepository;
 import lotto.domain.Number;
 import lotto.domain.PurchaseAmount;
+import lotto.domain.Rank;
 import lotto.domain.WinningLotto;
 import lotto.domain.WinningResult;
 import lotto.view.InputView;
@@ -20,6 +22,8 @@ public class Controller {
         OutputView.printLottos(lottoRepository);
         WinningLotto winningLotto = createWinningLotto();
         List<WinningResult> winningResults = lottoRepository.checkWinningResults(winningLotto);
+        Map<Rank, Integer> winningStats = Rank.countRanks(winningResults);
+        OutputView.printWinningStats(winningStats);
     }
 
     private PurchaseAmount createPurchaseAmount() {
