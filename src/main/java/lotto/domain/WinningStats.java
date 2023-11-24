@@ -10,6 +10,10 @@ public class WinningStats {
         this.winningStats = winningStats;
     }
 
+    public double calculateTotalProfitRate(PurchaseAmount purchaseAmount) {
+        return (calculateTotalProfit() * 100.0) / purchaseAmount.getPurchaseAmount();
+    }
+
     private long calculateTotalProfit() {
         return winningStats.entrySet()
                 .stream()

@@ -21,6 +21,7 @@ public class Controller {
         WinningLotto winningLotto = createWinningLotto();
         List<WinningResult> winningResults = lottoRepository.checkWinningResults(winningLotto);
         WinningStats winningStats = createWinningStats(winningResults);
+        createTotalProfitRate(winningStats, purchaseAmount);
     }
 
     private PurchaseAmount createPurchaseAmount() {
@@ -75,5 +76,10 @@ public class Controller {
         WinningStats winningStats = Rank.countRanks(winningResults);
         OutputView.printWinningStats(winningStats);
         return winningStats;
+    }
+
+    private void createTotalProfitRate(WinningStats winningStats, PurchaseAmount purchaseAmount) {
+        double totalProfitRate = winningStats.calculateTotalProfitRate(purchaseAmount);
+        OutputView.printTotalProfitRate(totalProfitRate);
     }
 }
