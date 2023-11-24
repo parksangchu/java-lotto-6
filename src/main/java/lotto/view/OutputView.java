@@ -13,7 +13,7 @@ public class OutputView {
     private static final String WINNING_STATS_FORMAT = "%d개 일치%s (%,d원) - %d개%n";
     private static final String HAS_BONUS_NUMBER = ", 보너스 볼 일치";
     private static final String HAS_NOT_BONUS_NUMBER = "";
-    private static final String TOTAL_PROFIT_RATE_FORMAT = "총 수익률은 %.1d%%입니다.";
+    private static final String TOTAL_PROFIT_RATE_FORMAT = "총 수익률은 %.1f%%입니다.";
 
     public static void printError(Exception e) {
         System.out.println(e.getMessage());
