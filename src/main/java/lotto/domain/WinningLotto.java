@@ -1,5 +1,7 @@
 package lotto.domain;
 
+import java.util.List;
+
 public class WinningLotto {
     private static final int MIN_RANGE = 1;
     private static final int MAX_RANGE = 45;
@@ -25,4 +27,13 @@ public class WinningLotto {
         }
     }
 
+    public int calculateMatchingNumber(List<Integer> numbers) {
+        return (int) numbers.stream()
+                .filter(lotto::contains)
+                .count();
+    }
+
+    public boolean hasBonusNumber(List<Integer> numbers) {
+        return numbers.contains(bonusNumber);
+    }
 }

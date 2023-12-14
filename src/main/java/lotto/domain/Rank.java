@@ -29,6 +29,14 @@ public enum Rank {
                 .orElse(NONE);
     }
 
+    public boolean isNotNone() {
+        return this != NONE;
+    }
+
+    public boolean is(Rank rank) {
+        return this == rank;
+    }
+
     public int getPrize() {
         return prize;
     }
