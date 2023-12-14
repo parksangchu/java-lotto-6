@@ -13,8 +13,7 @@ class WinningLottoTest {
     @ValueSource(ints = {0, 6, 46})
     void create(int input) {
         Lotto lotto = new Lotto(List.of(1, 2, 3, 4, 5, 6));
-        int bonusNumber = input;
-        assertThatThrownBy(() -> new WinningLotto(lotto, bonusNumber))
+        assertThatThrownBy(() -> new WinningLotto(lotto, input))
                 .isInstanceOf(IllegalArgumentException.class)
                 .hasMessageContaining("[ERROR]");
     }

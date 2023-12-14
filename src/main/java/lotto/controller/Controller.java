@@ -3,7 +3,9 @@ package lotto.controller;
 import java.util.List;
 import lotto.domain.Lotto;
 import lotto.domain.LottoRepository;
+import lotto.domain.LottoService;
 import lotto.domain.LottoShop;
+import lotto.domain.RankRepository;
 import lotto.domain.WinningLotto;
 import lotto.view.InputView;
 import lotto.view.OutputView;
@@ -14,6 +16,9 @@ public class Controller {
         lottoShop.issueLottos();
         OutputView.printLottos(lottoShop.getPurchaseQuantity(), LottoRepository.lottos());
         WinningLotto winningLotto = createWinningLotto();
+        LottoService lottoService = new LottoService(LottoRepository.lottos(), winningLotto);
+        lottoService.createRanks();
+        OutputView.printWinningResult(RankRepository.createWinningResult());
     }
 
     private LottoShop createLottoShop() {
