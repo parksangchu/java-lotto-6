@@ -23,4 +23,12 @@ public class LottoShop {
             LottoRepository.addLotto(lotto);
         }
     }
+
+    public int getPurchaseAmount() {
+        return purchaseAmount;
+    }
+
+    public int getPurchaseQuantity() {
+        return purchaseQuantity;
+    }
 }

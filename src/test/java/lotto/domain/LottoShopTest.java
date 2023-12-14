@@ -22,5 +22,6 @@ class LottoShopTest {
         lottoShop.issueLottos();
         assertThat(LottoRepository.lottos().size())
                 .isEqualTo(5);
+
     }
 }
