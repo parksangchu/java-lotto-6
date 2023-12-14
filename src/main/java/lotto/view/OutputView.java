@@ -14,6 +14,7 @@ public class OutputView {
     private static final String WINNING_RESULT_LABEL = "\n당첨 통계\n---";
     private static final String WINNING_RESULT = "%d개 일치 (%,d원) - %d개";
     private static final String WINNING_RESULT_FOR_SECOND = "%d개 일치, 보너스 볼 일치 (%,d원) - %d개";
+    private static final String TOTAL_PROFIT_RATE_FORMAT = "총 수익률은 %.1f%%입니다.\n";
 
     public static void printError(Exception e) {
         System.out.println(e.getMessage());
@@ -27,7 +28,7 @@ public class OutputView {
     public static String convertToString(List<Integer> lotto) {
         return lotto.stream()
                 .sorted()
-                .map(number -> String.valueOf(number))
+                .map(String::valueOf)
                 .collect(Collectors.joining(DELIMITER, PREFIX, SUFFIX));
     }
 
@@ -41,5 +42,9 @@ public class OutputView {
             return String.format(WINNING_RESULT_FOR_SECOND, rank.getMatchingCount(), rank.getPrize(), count);
         }
         return String.format(WINNING_RESULT, rank.getMatchingCount(), rank.getPrize(), count);
+    }
+
+    public static void printTotalProfitRate(double totalProfitRate) {
+        System.out.printf(TOTAL_PROFIT_RATE_FORMAT, totalProfitRate);
     }
 }

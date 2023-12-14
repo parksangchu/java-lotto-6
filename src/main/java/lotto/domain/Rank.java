@@ -49,4 +49,8 @@ public enum Rank {
     public int getMatchingCount() {
         return matchingCount;
     }
+
+    public int calculateProfit(int count) {
+        return count * prize;
+    }
 }

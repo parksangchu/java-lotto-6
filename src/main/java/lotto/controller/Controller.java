@@ -7,6 +7,7 @@ import lotto.domain.LottoService;
 import lotto.domain.LottoShop;
 import lotto.domain.RankRepository;
 import lotto.domain.WinningLotto;
+import lotto.domain.WinningResult;
 import lotto.view.InputView;
 import lotto.view.OutputView;
 
@@ -18,7 +19,10 @@ public class Controller {
         WinningLotto winningLotto = createWinningLotto();
         LottoService lottoService = new LottoService(LottoRepository.lottos(), winningLotto);
         lottoService.createRanks();
-        OutputView.printWinningResult(RankRepository.createWinningResult());
+        WinningResult winningResult = new WinningResult(RankRepository.createWinningResult());
+        OutputView.printWinningResult(winningResult.getWinningResult());
+        double totalProfitRate = winningResult.calculateTotalProfitRate(lottoShop.getPurchaseAmount());
+        OutputView.printTotalProfitRate(totalProfitRate);
     }
 
     private LottoShop createLottoShop() {
