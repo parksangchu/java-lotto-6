@@ -16,4 +16,11 @@ public class LottoShop {
             throw new IllegalArgumentException(ErrorMessage.INVALID_PURCHASE_AMOUNT.getMessage());
         }
     }
+
+    public void issueLottos() {
+        for (int i = 0; i < purchaseQuantity; i++) {
+            Lotto lotto = LottoMaker.makeLotto();
+            LottoRepository.addLotto(lotto);
+        }
+    }
 }

@@ -8,7 +8,7 @@ public class LottoMaker {
     private static final int MAX_RANGE = 45;
     private static final int NUMBERS_SIZE = 6;
 
-    public static Lotto generateLottoNumbers() {
+    public static Lotto makeLotto() {
         List<Integer> numbers = Randoms.pickUniqueNumbersInRange(MIN_RANGE, MAX_RANGE, NUMBERS_SIZE);
         return new Lotto(numbers);
     }
